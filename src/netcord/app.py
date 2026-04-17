@@ -20,6 +20,15 @@ class NetCordApp(ctk.CTk):
         self.minsize(900, 600)
         self.configure(fg_color=C["bg_dark"])
 
+        # Set Window Icon
+        try:
+            import os
+            icon_path = "netcord.ico"
+            if os.path.exists(icon_path):
+                self.iconbitmap(icon_path)
+        except Exception:
+            pass
+
         self.selected_adapter: StringVar = StringVar(value="")
         self.pages: dict[str, ctk.CTkFrame] = {}
         self._sidebar_btns: dict[str, SidebarButton] = {}
