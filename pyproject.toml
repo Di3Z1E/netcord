@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netcord"
+version = "1.1.0"
+authors = [
+  { name="Di3Z1E" },
+]
+description = "Advanced IPv4 Network Manager for Windows"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "customtkinter>=5.2.2",
+    "darkdetect>=0.8.0",
+    "packaging>=23.0",
+    "pillow>=10.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Di3Z1E/netcord"
+"Bug Tracker" = "https://github.com/Di3Z1E/netcord/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["netcord*"]
+
+[project.scripts]
+netcord = "netcord.app:main"
