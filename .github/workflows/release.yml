@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.1.0)'
+        required: true
+        default: 'v1.1.0'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: Build with PyInstaller
+      run: |
+        pyinstaller netcord.spec
+        
+    - name: Verify build
+      run: |
+        if (!(Test-Path "dist/NetCord.exe")) {
+          Write-Error "Error: dist/NetCord.exe was not created."
+          exit 1
+        }
+        
+    - name: Create Release
+      env:
+        GH_TOKEN: ${{ github.token }}
+        VERSION_INPUT: ${{ github.event.inputs.version }}
+      run: |
+        $tag = $env:GITHUB_REF_NAME
+        if ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch") {
+          $tag = $env:VERSION_INPUT
+        }
+        
+        # Check if release already exists
+        $release = gh release view $tag 2>$null
+        if ($null -ne $release) {
+          echo "Release $tag already exists, uploading asset only."
+          gh release upload $tag "dist/NetCord.exe" --clobber
+        } else {
+          gh release create $tag "dist/NetCord.exe" --generate-notes --title "NetCord $tag"
+        }

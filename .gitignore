@@ -27,7 +27,7 @@ ENV/
 .env
 
 # PyInstaller
-*.spec
+# *.spec - removing this because it's required for release builds
 # *.exe - you might want to keep the exe if distributing via git, 
 # but usually dist/ is ignored.
 

@@ -2,7 +2,7 @@ import customtkinter as ctk
 import threading
 from tkinter import StringVar
 from .constants import C, FONT_SMALL, FONT_BADGE, FONT_TITLE, set_theme
-from .utils import is_admin
+from .utils import is_admin, resource_path
 from .core import get_adapters, get_adapter_info
 from .widgets.sidebar_button import SidebarButton
 from .widgets.section_label import SectionLabel
@@ -21,13 +21,7 @@ class NetCordApp(ctk.CTk):
         self.configure(fg_color=C["bg_dark"])
 
         # Set Window Icon
-        try:
-            import os
-            icon_path = "media/netcord.ico"
-            if os.path.exists(icon_path):
-                self.iconbitmap(icon_path)
-        except Exception:
-            pass
+        self.after(200, self._set_window_icon)
 
         self.selected_adapter: StringVar = StringVar(value="")
         self.pages: dict[str, ctk.CTkFrame] = {}
@@ -177,3 +171,12 @@ class NetCordApp(ctk.CTk):
             self.status_badge.configure(text="●  Connected", text_color=C["green"])
         else:
             self.status_badge.configure(text="●  Disconnected", text_color=C["red"])
+
+    def _set_window_icon(self):
+        try:
+            import os
+            icon_path = resource_path("media/netcord.ico")
+            if os.path.exists(icon_path):
+                self.iconbitmap(icon_path)
+        except Exception:
+            pass
