@@ -23,7 +23,7 @@ class NetCordApp(ctk.CTk):
         # Set Window Icon
         try:
             import os
-            icon_path = "netcord.ico"
+            icon_path = "media/netcord.ico"
             if os.path.exists(icon_path):
                 self.iconbitmap(icon_path)
         except Exception:
