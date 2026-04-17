@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 <!-- Replace this with your actual banner once added to the media folder -->
@@ -99,3 +100,7 @@ Distributed under the **MIT License**.
 *Optimized for the modern developer workspace.*
 
 </div>
+=======
+# netcord
+A sleek, modern Windows app that makes advanced network adapter configuration simple and intuitive. Easily switch between DHCP &amp; static IP, save profiles, and run diagnostics, all with a polished dark UI.
+>>>>>>> dcd6cfa32f456360817b5e940fdcaa303fb30fe9
