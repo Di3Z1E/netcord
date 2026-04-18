@@ -47,7 +47,7 @@
 ## 📸 Interface Preview
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x450/121212/00e5ff?text=Modern+UI+Preview+Coming+Soon" width="90%" style="border-radius: 10px;" alt="NetCord UI Preview" />
+  <img src="media/preview.png" width="90%" style="border-radius: 10px;" alt="NetCord UI Preview" />
 </div>
 
 ---
