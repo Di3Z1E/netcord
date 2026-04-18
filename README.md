@@ -52,24 +52,41 @@
 
 ---
 
-## 📥 Installation
+## 🚀 Get Started
 
-> [!IMPORTANT]
-> **Elevated Privileges** are required to modify system-level network configurations.
+The easiest way to start using **NetCord** is to download the latest pre-compiled Windows executable from the [Releases page](https://github.com/Di3Z1E/netcord/releases).
+
+---
+
+## 💻 Development
+
+### Build Executable from Source
+
+For developers who need to compile a standalone binary for Windows, use the included specification file:
+
+```
+pyinstaller netcord.spec
+```
+
+This will generate the executable in the `dist/` directory.
+
+### Run from Source (for development)
+
+To run NetCord directly from the source code for development purposes:
 
 1. **Clone the Repository**
-```bash
+```
    git clone https://github.com/Di3Z1E/netcord.git
    cd NetCord
 ```
 
 2. **Environment Setup**
-```bash
+```
    pip install -r requirements.txt
 ```
 
 3. **Execute**
-```bash
+```
    python main.py
 ```
 
@@ -81,9 +98,9 @@ Pre-compiled Windows executables are available for download on the [Releases pag
 
 For developers who need to compile from source, use the included specification file:
 
-\`\`\`bash
+```bash
 pyinstaller netcord.spec
-\`\`\`
+```
 
 The executable will be generated in the `dist/` directory.
 
