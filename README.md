@@ -77,13 +77,16 @@
 
 ## 📦 Distribution
 
-To compile a standalone binary for Windows, use the included specification file:
+Pre-compiled Windows executables are available for download on the [Releases page](https://github.com/Di3Z1E/netcord/releases).
 
-```bash
+For developers who need to compile from source, use the included specification file:
+
+\`\`\`bash
 pyinstaller netcord.spec
-```
+\`\`\`
 
 The executable will be generated in the `dist/` directory.
+
 
 ---
 
